@@ -33,3 +33,9 @@ jobs:
         name: GCP compute list 
         run: |
           gcloud compute instances list
+
+      - name: GitHub Script
+        uses: actions/github-script@v7.0.1
+        
+      - name: Run wp.sh script
+        run: bash ./wp.sh
