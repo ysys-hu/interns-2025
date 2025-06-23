@@ -40,6 +40,13 @@ jobs:
         name: GCP compute list 
         run: |
           gcloud compute instances list
+
+      - uses: simenandre/setup-gke-gcloud-auth-plugin@v1
+
+      - uses: google-github-actions/get-gke-credentials@v1
+        with:
+          cluster_name: interns-cluster
+          location: us-east1
         
       - name: Run wp.sh script
         run: bash ./wp.sh
