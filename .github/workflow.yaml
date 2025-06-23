@@ -1,0 +1,30 @@
+name: "FAST bootstrap stage"
+
+on:
+  push:
+    branches:
+      - main
+      - test
+jobs:
+  pr:
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        name: Checkout repository
+        uses: actions/checkout@v4
+
+      - id: gcp-auth
+        name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/678357795040/locations/global/workloadIdentityPools/github/providers/github 
+          access_token_lifetime: 900s
+
+      - id: gcp-sdk
+        name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - id: compute-list 
+        name: GCP compute list 
+        run: |
+          gcloud compute ls 
