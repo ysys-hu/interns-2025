@@ -22,6 +22,7 @@ jobs:
         with:
           workload_identity_provider: projects/678357795040/locations/global/workloadIdentityPools/github-pool/providers/github-provider 
           access_token_lifetime: 900s
+          project_id: intern-461913
 
       - id: gcp-sdk
         name: Set up Cloud SDK
@@ -30,4 +31,4 @@ jobs:
       - id: compute-list 
         name: GCP compute list 
         run: |
-          gcloud compute ls 
+          gcloud compute list
