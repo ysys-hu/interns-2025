@@ -1,4 +1,5 @@
 #!/bin/bash
+gcloud components install gke-gcloud-auth-plugin
 gcloud container clusters get-credentials intern-cluster --region us-east1 --project intern-461913
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo update
