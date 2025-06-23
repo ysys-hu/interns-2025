@@ -45,7 +45,7 @@ jobs:
 
       - uses: google-github-actions/get-gke-credentials@v1
         with:
-          cluster_name: interns-cluster
+          cluster_name: intern-cluster
           location: us-east1
         
       - name: Run wp.sh script
