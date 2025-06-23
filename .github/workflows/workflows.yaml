@@ -29,6 +29,13 @@ jobs:
         name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
 
+       # 👇 Helm telepítése GCP-s runneren
+      - id: install-helm
+        name: Install Helm
+        uses: azure/setup-helm@v3
+        with:
+          version: v3.14.3
+
       - id: compute-list 
         name: GCP compute list 
         run: |
